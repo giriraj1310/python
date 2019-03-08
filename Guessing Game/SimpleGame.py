@@ -2,9 +2,27 @@
 
 import random
 
-#Generate a random number for the user to guess
-randNum = random.randrange(0,10)
+class GuessingGame:
+    def __init__(self):
+        #Generate a random number for the user to guess
+        self._randNum = random.randrange(0,10)
 
+    
+
+    def playGame(self):
+        userGuess = -1
+        while userGuess!=self._randNum:
+            
+            userGuess = int(input('So what do you think is the number'))
+
+            if userGuess > self._randNum:
+                print("Sorry, your guess is too high. Please try again")
+            elif userGuess < self._randNum:
+                print("Sorry, your guess is too low. Please try again")
+                
+        else:
+            print("Congratulations you have won!")
+    
 #Let the user try to guess the number three time
 # for guessCounter in range(3):
 #     #Ask the user to guess the number
@@ -26,16 +44,4 @@ randNum = random.randrange(0,10)
 #     print("Game over!")
 
 # Continue while the user enters the correct answer
-userGuess = -1
-while userGuess!=randNum:
-    
-    userGuess = int(input('So what do you think is the number'))
 
-    if userGuess > randNum:
-        print("Sorry, your guess is too high. Please try again")
-    elif userGuess < randNum:
-        print("Sorry, your guess is too low. Please try again")
-        
-else:
-    print("Congratulations you have won!")
-    
